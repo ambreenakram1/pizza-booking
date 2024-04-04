@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Easy view" pattern="(file:server/index.js||file:server/package.json||file:.gitignore||file:README.md||file[pizza-booking]:client-side/sass//*||file:client-side/package.json||file:client-side/tailwind.config.js||file[pizza-booking]:client-side/src//*)&amp;&amp;!file:client-side/src/index.css&amp;&amp;!file:client-side/src/index.css.map&amp;&amp;!file:client-side/.gitignore&amp;&amp;!file:client-side/package-lock.json" />
+</component>

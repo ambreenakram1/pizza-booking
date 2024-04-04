@@ -1,4 +1,4 @@
 /server/node_modules
 /client-side/node_modules
 /client-side/.tmp
-/client-side/src/index.css
+/client-side/src/index.css*
