@@ -12,17 +12,28 @@ const UserAuthSystem = () => {
     const screenParam = url.searchParams.get('screen');
 
     if (screenParam === SCREEN.LOGIN) {
+
+        if (window.localStorage.getItem('user')) {
+            navigateToScreen(SCREEN.DASHBOARD);
+        }
+
         return <LoginScreen/>;
     } else if (screenParam === SCREEN.REGISTER) {
         return <RegisterScreen />;
     } else if (screenParam === SCREEN.DASHBOARD) {
-        return <DashboardScreen firstName={'Ambreen'} lastName={'Akram'} logout={e => {
-            localStorage.removeItem('userId');
+        if (window.localStorage.getItem('user') === null) {
             navigateToScreen(SCREEN.LOGIN);
-        }} />;
+        }
+
+        return <DashboardScreen />;
     } else if (screenParam === SCREEN.CART) {
         return <CartScreen />;
     } else if (screenParam === SCREEN.ADD_TO_CART) {
+
+        if (!url.searchParams.get('type')) {
+            navigateToScreen(SCREEN.DASHBOARD);
+        }
+
         return <AddToCartScreen />;
     } else {
         navigateToScreen(SCREEN.LOGIN);

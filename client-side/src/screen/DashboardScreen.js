@@ -1,12 +1,9 @@
-
 import React from 'react';
-import { navigateToScreen } from "../utils/nav_controller";
+import {navigateToScreen} from "../utils/nav_controller";
 import SCREEN from "../models/Screens";
 
-const DashboardScreen = ({ firstName, lastName, Logout }) => {
-    if (window.localStorage.getItem('user') === null) {
-        navigateToScreen(SCREEN.LOGIN);
-    }
+const DashboardScreen = () => {
+
 
     const user = JSON.parse(window.localStorage.getItem('user'));
 
@@ -20,13 +17,15 @@ const DashboardScreen = ({ firstName, lastName, Logout }) => {
                 </div>
 
                 <div className="middle-area pt-5">
-                    <div className="cheese-Pizza flex p-5" onClick={() => navigateToScreen(SCREEN.ADD_TO_CART,  `type=cheese-pizza`)}>
+                    <div className="cheese-Pizza flex p-5"
+                         onClick={() => navigateToScreen(SCREEN.ADD_TO_CART, `type=cheese-pizza`)}>
                         <img src="/assets/th.jpeg" alt="Cheese Pizza" height="150" width="200"/>
 
                         <h3 className="p-5">Cheese Pizza</h3>
                     </div>
 
-                    <div className="vegetable-Pizza flex p-5" onClick={() => navigateToScreen(SCREEN.ADD_TO_CART, 'type=vegetable-pizza')}>
+                    <div className="vegetable-Pizza flex p-5"
+                         onClick={() => navigateToScreen(SCREEN.ADD_TO_CART, 'type=vegetable-pizza')}>
                         <img src="/assets/th%20(1).jpeg" alt="Vegetable Pizza" height="180" width="200"/>
                         <h3 className="p-5">Vegetable Pizza</h3>
                     </div>

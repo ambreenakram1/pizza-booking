@@ -80,8 +80,8 @@ app.post('/api/add-to-cart', (req, res) => {
     insertOrder(
         userId,
         pizzaType,
-        size,
         price,
+        size,
         data => {
             res.json({
                 status: 'SUCCESS',

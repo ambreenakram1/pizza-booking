@@ -1,20 +1,20 @@
 import React from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import axios from "axios";
 import {
     setEmail,
     setPassword,
     setMessage, selectEmail, selectPassword, selectMessage,
 } from './loginSlice';
-import { navigateToScreen } from "../utils/nav_controller";
+import {navigateToScreen} from "../utils/nav_controller";
 import SCREEN from "../models/Screens";
 
 const LoginScreen = () => {
     const dispatch = useDispatch();
 
-const email = useSelector(selectEmail);
-const password = useSelector(selectPassword);
-const msg = useSelector(selectMessage);
+    const email = useSelector(selectEmail);
+    const password = useSelector(selectPassword);
+    const msg = useSelector(selectMessage);
 
     const handleEmailChange = (e) => {
         dispatch(setEmail(e.target.value));
@@ -25,7 +25,7 @@ const msg = useSelector(selectMessage);
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         const params = new URLSearchParams();
         params.append('email', email);
@@ -56,14 +56,21 @@ const msg = useSelector(selectMessage);
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label id="email" className="block text-gray-700 font-semibold mb-2">Email</label>
-                        <input type="email" id="email" name="email" className="border border-gray-300 px-4 py-2 rounded-md w-full" onChange={handleEmailChange} value={email} />
+                        <input type="email" id="email" name="email"
+                               className="border border-gray-300 px-4 py-2 rounded-md w-full"
+                               onChange={handleEmailChange} value={email}/>
                     </div>
                     <div className="mb-4">
                         <label id="password" className="block text-gray-700 font-semibold mb-2">Password</label>
-                        <input type="password" id="password" name="password" className="border border-gray-300 px-4 py-2 rounded-md w-full" onChange={handlePasswordChange} value={password} />
+                        <input type="password" id="password" name="password"
+                               className="border border-gray-300 px-4 py-2 rounded-md w-full"
+                               onChange={handlePasswordChange} value={password}/>
                     </div>
-                    <p>Don't have an account? <span onClick={() => navigateToScreen(SCREEN.REGISTER)}>REGISTER</span></p>
-                    <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Login</button>
+                    <p>Don't have an account? <span onClick={() => navigateToScreen(SCREEN.REGISTER)}>REGISTER</span>
+                    </p>
+                    <button type="submit"
+                            className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Login
+                    </button>
                 </form>
             </div>
         </div>
